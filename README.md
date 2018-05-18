@@ -1,1 +1,1 @@
-Placeholder text
+Projects for Codecademy courses
