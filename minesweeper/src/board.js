@@ -35,17 +35,21 @@ export class Board {
     ];
     const numberOfRows = this._bombBoard.length;
     const numberOfColumns = this._bombBoard[0].length;
-    let numberOfBombs = 0;
+    let numberOfNeighborBombs = 0;
     neighborOffsets.forEach(offset => {
       const neighborRowIndex = rowIndex + offset[0];
       const neighborColumnIndex = columnIndex + offset[1];
-      if (neighborRowIndex >= 0 && neighborColumnIndex >= 0 && neighborRowIndex <= numberOfRows && neighborColumnIndex <= numberOfColumns) {
+      if (neighborRowIndex >= 0 && 
+          neighborColumnIndex >= 0 && 
+          neighborRowIndex < numberOfRows && 
+          neighborColumnIndex < numberOfColumns
+        ) {
         if (this._bombBoard[neighborRowIndex][neighborColumnIndex] === 'B') {
-          numberOfBombs++;
+          numberOfNeighborBombs++;
         }
       }
     });
-    return numberOfBombs;
+    return numberOfNeighborBombs;
   }
   
   hasSafeTiles() {

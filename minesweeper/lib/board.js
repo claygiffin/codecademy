@@ -39,17 +39,17 @@ var Board = exports.Board = function () {
       var neighborOffsets = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]];
       var numberOfRows = this._bombBoard.length;
       var numberOfColumns = this._bombBoard[0].length;
-      var numberOfBombs = 0;
+      var numberOfNeighborBombs = 0;
       neighborOffsets.forEach(function (offset) {
         var neighborRowIndex = rowIndex + offset[0];
         var neighborColumnIndex = columnIndex + offset[1];
-        if (neighborRowIndex >= 0 && neighborColumnIndex >= 0 && neighborRowIndex <= numberOfRows && neighborColumnIndex <= numberOfColumns) {
+        if (neighborRowIndex >= 0 && neighborColumnIndex >= 0 && neighborRowIndex < numberOfRows && neighborColumnIndex < numberOfColumns) {
           if (_this._bombBoard[neighborRowIndex][neighborColumnIndex] === 'B') {
-            numberOfBombs++;
+            numberOfNeighborBombs++;
           }
         }
       });
-      return numberOfBombs;
+      return numberOfNeighborBombs;
     }
   }, {
     key: 'hasSafeTiles',
