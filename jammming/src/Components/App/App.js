@@ -9,54 +9,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [
-        // {
-        //   name: 'Dog Paddle',
-        //   artist: 'Modest Mouse',
-        //   album: 'This is a long drive...',
-        //   id: '4',
-        //   uri:'test-4'
-        // },
-        // {
-        //   name: 'Your Dog',
-        //   artist: 'Soccer Mommy',
-        //   album: 'Clean',
-        //   id: '5',
-        //   uri:'test-5'
-        // },
-        // {
-        //   name: '1 Billion Dogs',
-        //   artist: 'Jay Som',
-        //   album: 'Everybody Works',
-        //   id: '6',
-        //   uri:'test-6'
-        // }
-      ],
+      searchResults: [],
       playlistName: 'New Playlist',
-      playlistTracks: [
-        // {
-        //   name: 'Born in the U.S.A.',
-        //   artist: 'Bruce Springsteen',
-        //   album: 'Born in the U.S.A.',
-        //   id: '1',
-        //   uri:'test-1'
-        // },
-        // {
-        //   name: 'Dramamine',
-        //   artist: 'Modest Mouse',
-        //   album: 'This is a long drive...',
-        //   id: '2',
-        //   uri:'test-2'
-        // },
-        // {
-        //   name: 'Fool On The Hill',
-        //   artist: 'The Beatles',
-        //   album: 'Magical Mystery Tour',
-        //   id: '3',
-        //   uri:'test-3'
-        // }
-      ]
-
+      playlistTracks: []
     }
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -102,9 +57,6 @@ class App extends Component {
   }
 
   search(term){
-    // this.setState({
-    //   searchResults: Spotify.search(term)
-    // })
     Spotify.search(term).then(tracks => {
       this.setState({
         searchResults: tracks
