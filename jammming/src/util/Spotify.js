@@ -1,7 +1,7 @@
 let accessToken = '';
 let expiresIn = '';
 const clientID = 'bfbd6811c6c14ba79a87a555c8830e26';
-const redirectURI = 'claygiffin_jammming.surge.sh';
+const redirectURI = 'http://claygiffin_jammming.surge.sh/';
 
 const Spotify = {
 
