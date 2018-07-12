@@ -66,7 +66,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div onClick={this.testID}>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
           <SearchBar onSearch={this.search} />
