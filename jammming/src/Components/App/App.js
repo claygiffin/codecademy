@@ -87,6 +87,13 @@ class App extends Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    if(localStorage.getItem('searchTerm')){
+      this.search(localStorage.getItem('searchTerm'));
+      localStorage.removeItem('searchTerm');
+    }
+  }
 }
 
 export default App;

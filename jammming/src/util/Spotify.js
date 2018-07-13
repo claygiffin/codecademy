@@ -18,12 +18,13 @@ const Spotify = {
         window.history.pushState('Access Token', null, '/');
         return accessToken;
       } else {
-        window.location.assign(`https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`)
+        window.location.assign(`https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`);
       }
     }
   },
 
   search(term){
+    localStorage.setItem('searchTerm', term);
     let accessToken = Spotify.getAccessToken();
     let endpoint = `https://api.spotify.com/v1/search?type=track&q=${term}`;
     return fetch(endpoint, {
