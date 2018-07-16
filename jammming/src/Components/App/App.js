@@ -57,6 +57,7 @@ class App extends Component {
   }
 
   search(term){
+    localStorage.setItem('searchTerm', term);
     Spotify.search(term).then(tracks => {
       this.setState({
         searchResults: tracks

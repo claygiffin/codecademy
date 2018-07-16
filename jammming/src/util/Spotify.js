@@ -24,7 +24,6 @@ const Spotify = {
   },
 
   search(term){
-    localStorage.setItem('searchTerm', term);
     let accessToken = Spotify.getAccessToken();
     let endpoint = `https://api.spotify.com/v1/search?type=track&q=${term}`;
     return fetch(endpoint, {
